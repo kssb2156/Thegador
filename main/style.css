@@ -1,0 +1,537 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Press+Start+2P&display=swap");
+
+:root {
+    --color-logo: #edab50; /* สีส้มทอง */
+    --color-logo-shadow-1: #A9A9A9; /* สีเทาเข้ม */
+    --color-logo-shadow-2: #8c241d; /* สีแดงเข้ม */
+    --color-background: #7c7c7c; /* สีพื้นหลังหลัก */
+    --header-bg: linear-gradient(90deg, #edab50 0%, #ff8c00 100%); /* เพิ่ม Gradient */
+}
+
+/* Global Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: "Poppins", sans-serif;
+}
+
+html,
+body {
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+body {
+    position: relative;
+    background-color: var(--color-background);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Header Bar */
+.header-bar {
+    width: 100%;
+    height: 80px; 
+    background: var(--header-bg); 
+    display: flex;
+    justify-content: space-between; /* แก้ไข: ให้ข้อความและปุ่มอยู่คนละฝั่ง */
+    align-items: center;
+    padding: 0 30px; /* ปรับ Padding */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    border-bottom: 3px solid var(--color-logo-shadow-2);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* Marquee Text Styles */
+.marquee-container {
+    flex-grow: 1; /* ทำให้ container ขยายเต็มพื้นที่ */
+    overflow: hidden; /* ซ่อนส่วนเกินของข้อความ */
+    white-space: nowrap; /* ป้องกันการขึ้นบรรทัดใหม่ */
+    text-shadow: 2px 2px 0 var(--color-logo-shadow-2); /* เพิ่มเงาให้ฟอนต์ */
+}
+
+.marquee-text {
+    font-family: "Press Start 2P", system-ui; /* ใช้ฟอนต์เดียวกับปุ่ม */
+    font-size: 2.2rem;
+    color: #fff;
+    display: inline-block; /* ทำให้สามารถใช้ animation ได้ */
+    padding-left: 100%; /* เริ่มต้นจากนอกหน้าจอ */
+    animation: marquee 20s linear infinite; /* กำหนด animation */
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Logout Button Container */
+.logout-button-container {
+    z-index: 3;
+    position: relative;
+}
+
+.logout-button {
+    font-family: "Press Start 2P", system-ui;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    background-color: var(--color-logo);
+    color: #222;
+    border: 4px solid var(--color-logo-shadow-2);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-shadow: 2px 2px 0 var(--color-logo-shadow-1);
+    box-shadow: 6px 6px 0 var(--color-logo-shadow-2);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.logout-button:hover {
+    background-color: var(--color-logo-shadow-1);
+    box-shadow: 3px 3px 0 var(--color-logo-shadow-2);
+    transform: translateY(3px) translateX(3px);
+}
+
+.logout-button:active {
+    transform: translateY(6px) translateX(6px);
+    box-shadow: none;
+}
+
+/* Card Container ขนาด บล็อก */
+.card-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: flex-start;
+    gap: 25px;     /* ระยะห่างบล็อก*/
+    padding: 30px 20px;  /* ระยะห่างบล็อก*/
+    width: 100%;
+    max-width: 1200px; /* ขยายได้ถึง 1500*/
+    margin-top: 30px;  /* ระยะห่างแทบบน*/
+}
+/* Cardปกติ*/
+/* Card Styles */
+.card {
+    background: #0F172A;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 300px;
+    /* เพิ่มส่วนนี้: กำหนดความสูงให้เท่ากัน */
+    height: 450px; /* หรือใช้ min-height: 480px; */
+    /*--------------------------------*/
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+}
+
+.card img {
+    width: 100%;
+    height: 180px; 
+    object-fit: cover;
+    display: block;
+    position: relative;
+    border-bottom: 2px solid var(--color-logo-shadow-2);
+}
+
+/* ---------------------------------Card1---Tap-------------------- */
+/* Card1 */
+.card1 {
+    background: #0F172A; 
+    border-radius: 12px;
+    overflow: hidden;
+    width: 300px;
+    height: 450px;
+    color: #fff;
+    /* เริ่มต้นด้วยเงาปกติ ไม่มีแสงออร่า */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6); 
+    
+    /* เพิ่ม transition เพื่อทำให้การเปลี่ยน box-shadow นุ่มนวล */
+    transition: transform 0.3s ease, box-shadow 0.5s ease;
+    
+    border: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+    z-index: 1;
+    
+}
+
+.card1:hover { 
+    transform: translateY(-8px);
+    
+    /* --- เพิ่มแสงออร่าที่สวยงามเมื่อเอาเมาส์ไปชี้ --- */
+    box-shadow: 
+        0 0 10px 5px rgba(255, 255, 255, 0.4), /* แสงสีขาวอ่อนๆ */
+        0 0 20px 8px rgba(0, 191, 255, 0.7),  /* แสงสีฟ้านีออนที่โดดเด่น */
+        0 15px 35px rgba(0,0,0,0.8); /* เงาเข้มขึ้น */
+    /* ------------------------------------------- */
+}
+
+.card1 img { /* Corrected selector */
+    width: 100%;
+    height: 180px; 
+    object-fit: cover;
+    display: block;
+    position: relative;
+    border-bottom: 2px solid var(--color-logo-shadow-2);
+}
+/* -------------------------------------ปิดTap--------------------------- */
+
+
+/* bubble ปกติ */
+.bubble {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #0556a1;
+    padding: 6px 15px;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff;
+    box-shadow: 0 5px 8px rgba(0,0,0,0.4);
+    text-transform: uppercase;
+}
+/* bubble1 สีรุ้งเลื่อน */
+.bubble1 {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    background-size: 400% 100%; /* Make the gradient wider than the element */
+    animation: rainbow-shift 10s linear infinite; /* Apply the animation */
+    padding: 6px 15px;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff;
+    box-shadow: 0 5px 8px rgba(0,0,0,0.4);
+    text-transform: uppercase;
+}
+
+/* Define the animation */
+@keyframes rainbow-shift {
+    0% {
+        background-position: 0% 50%; /* Start position */
+    }
+    100% {
+        background-position: 100% 50%; /* End position */
+    }
+}
+
+/* ปิดท้าย--------bubble1  */
+/* bubble2 สีเทา */
+.bubble2 {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: linear-gradient(135deg, rgba(56, 49, 49, 0.2), rgba(255, 255, 255, 0)); /* Outer glass shine */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle edge highlight */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    padding: 6px 15px;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff;
+    box-shadow: 
+        inset 0 0 15px rgba(255, 255, 255, 0.7), /* Inner bright shine */
+        0 0 20px rgba(255, 215, 0, 0.5), /* เปลี่ยนเป็นแสงออร่าสีทอง */
+        0 5px 8px rgba(99, 243, 3, 0.4); /* Standard drop shadow */
+    text-transform: uppercase;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.7); /* เปลี่ยน text-shadow เป็นสีทอง */
+}
+/* ปิดท้าย--------bubble2  */
+
+.card-content {
+    padding: 15px;
+    text-align: center;
+}
+
+.card-content h3 {
+    margin: 15px 0 10px 0;
+    font-size: 20px;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+.card-content p {
+    font-size: 15px;
+    color: #cbd5e1;
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #FF416C;
+    margin-top: 15px;
+    letter-spacing: 0.5px;
+}
+
+.price del {
+    color: #94a3b8;
+    margin-left: 10px;
+    font-weight: normal;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 24px;
+    background: #EF4444;
+    color: #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn:hover {
+    background: #DC2626;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 61%; /* อัตราส่วน 16:9 */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*------------------------------------------------------------------*/
+/* สไตล์เฉพาะสำหรับ "การ์ดใหญ่" */
+/*------------------------------------------------------------------*/
+.card.card-large {
+    width: 300px; /* ขนาดปกติสำหรับมือถือ */
+    margin: 0 auto; /* จัดกึ่งกลางในแนวนอน */
+}
+
+/* ปรับขนาดภาพให้ไม่ยืด */
+.card.card-large img {
+    height: auto;
+    object-fit: contain;
+}
+
+/* Media Query สำหรับหน้าจอคอมพิวเตอร์ (ตั้งแต่ 768px ขึ้นไป) */
+@media (min-width: 768px) {
+    .card.card-large {
+        width: 100%; /* ทำให้การ์ดขยายเต็มความกว้าง */
+        max-width: 1000px; /* กำหนดขนาดสูงสุดที่ต้องการ */
+        display: flex; /* ใช้ Flexbox เพื่อจัดเรียงแนวนอน */
+    }
+
+    .card.card-large img {
+        width: 100%; /* ให้รูปภาพกินพื้นที่ครึ่งหนึ่ง */
+    }
+    
+    .card.card-large .card-content {
+        flex-grow: 1; /* ให้เนื้อหากินพื้นที่ที่เหลือ */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding-left: 30px;
+        text-align: left;
+    }
+
+    /* ปรับขนาดตัวอักษรให้ใหญ่ขึ้นในหน้าจอใหญ่ */
+    .card.card-large .card-content h3 {
+        font-size: 2.5rem;
+    }
+    .card.card-large .card-content p {
+        font-size: 1.8rem;
+    }
+    .card.card-large .card-content .price {
+        font-size: 2rem;
+    }
+}
+/*----------------------------------------------*/
+/* สไตล์สำหรับ Header Bar ที่อยู่ด้านล่าง */
+/*----------------------------------------------*/
+.header-bar-bottom {
+    width: 100%;
+    height: 80px; 
+    background: var(--header-bg); 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    box-shadow: 0 -6px 20px rgba(0,0,0,0.3); /* เปลี่ยนเงาให้หงายขึ้น */
+    border-top: 3px solid var(--color-logo-shadow-2); /* เพิ่มเส้นขอบด้านบน */
+    position: sticky;
+    bottom: 0; /* จัดตำแหน่งให้อยู่ด้านล่างสุด */
+    z-index: 10;
+}
+
+/*----------------------------------------------*/
+
+/*------------------------------------------------------------------*/
+/* --- Responsive Design สำหรับหน้าจอมือถือ --- */
+@media (max-width: 768px) {
+    .header-bar {
+        height: 60px;
+        padding: 0 15px;
+    }
+    
+    .marquee-text {
+        font-size: 1.6rem;
+    }
+
+    .logout-button {
+        font-size: 1rem;
+        padding: 8px 15px;
+        border-radius: 6px;
+        box-shadow: 4px 4px 0 var(--color-logo-shadow-2);
+    }
+
+    .logout-button:hover {
+        box-shadow: 2px 2px 0 var(--color-logo-shadow-2);
+        transform: translateY(2px) translateX(2px);
+    }
+
+    .logout-button:active {
+        transform: translateY(4px) translateX(4px);
+        box-shadow: none;
+    }
+
+    .card-container {
+        gap: 15px;
+        padding: 15px;
+        margin-top: 15px;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 280px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+    }
+
+    .card img {
+        height: 150px;
+    }
+
+    .bubble {
+        top: 10px;
+        left: 10px;
+        padding: 5px 12px;
+        font-size: 11px;
+    }
+
+    .card-content {
+        padding: 15px;
+    }
+
+    .card-content h3 {
+        font-size: 16px;
+    }
+
+    .card-content p {
+        font-size: 13px;
+    }
+
+    .price {
+        font-size: 15px;
+    }
+
+    .btn {
+        padding: 8px 18px;
+        font-size: 13px;
+        border-radius: 8px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+    }
+
+    .btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 12px rgba(0,0,0,0.4);
+    }
+}
+/* ---สีสำและบล็อกรหัสผ่านหน้า main --- */
+
+.password-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Removed padding and border to get rid of the box */
+    /* padding: 20px; */
+    /* border: 1px solid #ccc; */
+    border-radius: 1px;
+}
+/* ---รหัสผ่าน CodeCreate (card8)--- */
+#passwordInput {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 2px;
+}
+/* ---รหัสผ่าน CreditFlow (card9)--- */
+#passwordInput1 {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 2px;
+}
+/* ---รหัสผ่าน Aonbool (card10)--- */
+#passwordInput2 {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 2px;
+}
+
+
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  #message {
+    text-align: center;
+    margin-top: 10px;
+    color: red;
+  }

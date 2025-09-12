@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOTIQ</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #1E293B;
+    display: flex;
+    flex-direction: column; /* เปลี่ยนเป็น column เพื่อจัดเรียงข้อความและ card ลงมา */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  /* CSS สำหรับข้อความใหม่ */
+  .title-text {
+    color: #fff;
+    font-size: 2.5rem; /* ขนาดใหญ่ขึ้น */
+    font-weight: 700;
+    margin-bottom: 20px; /* เว้นระยะห่างจาก card */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .card {
+    background: #0F172A;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 300px;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .card img {
+    width: 100%;
+    display: block;
+    position: relative;
+  }
+
+  .bubble {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #FF416C;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  }
+
+  .card-content {
+    padding: 15px;
+  }
+
+  .card-content h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #ffffff;
+  }
+
+  .card-content p {
+    font-size: 14px;
+    color: #cbd5e1;
+    margin: 5px 0;
+  }
+
+  .price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #FF416C;
+    margin-top: 10px;
+  }
+
+  .price del {
+    color: #94a3b8;
+    margin-left: 8px;
+    font-weight: normal;
+  }
+  
+  .feature-list {
+    margin-top: 15px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #cbd5e1;
+  }
+
+  .feature-item .icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    fill: #3B82F6;
+  }
+
+  #passcode {
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+    margin-top: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    background: #1E293B;
+    color: #fff;
+  }
+
+  #passcode:focus {
+    border-color: #3B82F6;
+    box-shadow: 0 0 6px rgba(59,130,246,0.5);
+  }
+
+  .btn {
+    display: block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #3B82F6;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .btn:hover {
+    background: #2563EB;
+  }
+</style>
+</head>
+<body>
+
+  <h1 class="title-text">BOT IQ Option</h1>
+
+<div class="card">
+  <div style="position: relative;">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEibAdg6h4hyXI84dNzAMmhJxf_QfbZ5fsbDtaznoEKUTBqzxQsWBA35IG7zBy3AOTYu1JTTksYaFi447cb5NWRD2eCi6XmAddmit4kcANoNnPbugjvF5tOno1uzKN50NZJrB0Xsjzmqwqv81x_kgUSpWGcWyrr3wXz4RvzNg6xh0WN_dwoctSMev3N6vFrF/s1237/Screenshot_3.png" alt="โปรแกรม">
+    <div class="bubble">บอทเทรด IQ</div>
+  </div>
+  <div class="card-content">
+    <h3>BOT IQ Option</h3>
+    <p>Programbot เทรด IQ Option Auto</p>
+    <div class="price">ชำระแล้ว <del>1,890.-</del></div>
+
+    <ul class="feature-list">
+      <li class="feature-item">
+        <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+        <span>ระบบเทรดอัตโนมัติเต็มรูปแบบ</span>
+      </li>
+      <li class="feature-item">
+        <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+        <span>ใช้งานง่าย ไม่ต้องมีความรู้ด้านการเขียนโค้ด</span>
+      </li>
+      <li class="feature-item">
+        <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+        <span>ทำกำไรได้ตลอด 24 ชั่วโมง</span>
+      </li>
+    </ul>
+
+    <input type="password" id="passcode" placeholder="กรอกรหัสเพื่อเข้าสู่ระบบ">
+    <div class="btn" onclick="checkPass()">เข้าสู่ระบบ</div>
+  </div>
+</div>
+
+<script>
+  function checkPass() {
+    const code = document.getElementById("passcode").value;
+    if (code === "1234") {
+      window.open("https://drive.google.com/file/d/146zkgPw0_aIoQuiopv4NzvVLgJi7c9dJ/view?usp=drive_link", "_blank");
+    } else {
+      alert("Invalid code!");
+    }
+  }
+</script>
+
+</body>
+</html>
