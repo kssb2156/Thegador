@@ -4,8 +4,11 @@ window.addEventListener("load", function() {
     const subheading = document.querySelector(".subheading");
     const loginButton = document.getElementById('loginButton');
 
-    // สร้าง Audio object ไว้นอกเงื่อนไข
     const attackSound = new Audio('custom/lightning.mp3');
+
+    // ประกาศตัวแปรสำหรับตำแหน่งและความเร็ว
+    let positionX = 50; // เริ่มต้นที่กึ่งกลางหน้าจอ (50% ของความกว้าง)
+    const speed = 0.5; // ความเร็วในการเดิน (0.5% ของความกว้างหน้าจอต่อเฟรม)
 
     let keys = {
         'a': false,
@@ -21,28 +24,45 @@ window.addEventListener("load", function() {
     const setSamuraiState = () => {
         removeAllClasses();
 
+        // ตรวจสอบลำดับการกดปุ่ม (priority)
         if (keys.w) {
             samurai.classList.add("attack1");
             mainTitle.classList.add("shake");
             subheading.classList.add("shake");
-            attackSound.play(); // เรียกใช้คำสั่งเล่นเสียง
+            attackSound.play();
         } else if (keys.s) {
             samurai.classList.add("attack");
-        } else if (keys.a) {
+        } else if (keys.a || keys.d) {
             samurai.classList.add("run");
-            samurai.style.transform = "translate(-50%, -50%) scaleX(-4) scaleY(4)";
-        } else if (keys.d) {
-            samurai.classList.add("run");
-            samurai.style.transform = "translate(-50%, -50%) scaleX(4) scaleY(4)";
         } else {
             samurai.classList.add("idle");
-            samurai.style.transform = "translate(-50%, -50%) scale(4)";
         }
 
         if (!keys.w) {
             mainTitle.classList.remove("shake");
             subheading.classList.remove("shake");
         }
+    };
+
+    const gameLoop = () => {
+        // อัปเดตตำแหน่งตามปุ่มที่กด
+        if (keys.a) {
+            positionX -= speed;
+            samurai.style.transform = `translate(-50%, -50%) scaleX(-4) scaleY(4)`; // หันซ้าย
+        }
+        if (keys.d) {
+            positionX += speed;
+            samurai.style.transform = `translate(-50%, -50%) scaleX(4) scaleY(4)`; // หันขวา
+        }
+
+        // จำกัดขอบเขตไม่ให้ตัวละครเดินออกนอกหน้าจอ
+        positionX = Math.max(0, Math.min(100, positionX));
+
+        // อัปเดตตำแหน่งจริงของตัวละครใน CSS
+        samurai.style.left = `${positionX}%`;
+
+        // เรียกตัวเองซ้ำเพื่อสร้าง Game Loop
+        requestAnimationFrame(gameLoop);
     };
 
     window.addEventListener("keydown", (event) => {
@@ -60,10 +80,11 @@ window.addEventListener("load", function() {
             setSamuraiState();
         }
     });
-    // ลิงก์ไปยังอีกไฟล์ // .. 2 จุด คือย้อนกลับไปโฟร์เดอร์
-    loginButton.addEventListener('click', () => {         
-        window.location.href = "../Thegador/login/login.html";
-        //window.location.replace('../Thegador/login/login.html'); // เปิดหน้าใหม่ไม่สามาถน้อยกลับได้
 
+    loginButton.addEventListener('click', () => {
+        window.location.href = "../Thegador/login/login.html";
     });
+
+    // เริ่ม Game Loop
+    gameLoop();
 });
