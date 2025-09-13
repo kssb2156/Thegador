@@ -7,7 +7,6 @@
     --color-background: #7c7c7c; /* สีพื้นหลังหลัก */
     --header-bg: linear-gradient(90deg, #edab50 0%, #ff8c00 100%); /* เพิ่ม Gradient */
 }
-
 /* Global Styles */
 *,
 *::before,
@@ -37,7 +36,51 @@ body {
     align-items: center;
     transition: opacity 1s ease-in-out;
 }
+/* --- Search Bar Styles ปุ่มค้นหา--- */
+.search-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 600px;
+}
 
+#searchInput {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    font-size: 2rem;  /* ขนาด Blog ค้นหา*/
+    background-color: #2b2b2b;
+    color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: #edab50;
+    box-shadow: 0 0 8px rgba(237, 171, 80, 0.5);
+}
+
+#searchButton {
+    padding: 10px 20px;
+    font-family: "Press Start 2P", system-ui;
+    font-size: 2rem;
+    background-color: #edab50;
+    color: #222;
+    border: 2px solid var(--color-logo-shadow-2);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 3px 3px 0 var(--color-logo-shadow-2);
+}
+
+#searchButton:hover {
+    background-color: #ff8c00;
+    box-shadow: 2px 2px 0 var(--color-logo-shadow-2);
+    transform: translateY(1px) translateX(1px);
+}
 /* Header Bar */
 .header-bar {
     width: 100%;
@@ -118,7 +161,7 @@ body {
     gap: 25px;     /* ระยะห่างบล็อก*/
     padding: 30px 20px;  /* ระยะห่างบล็อก*/
     width: 100%;
-    max-width: 1200px; /* ขยายได้ถึง 1500*/
+    max-width: 1500px; /* ขยายได้ถึง 1500*/
     margin-top: 30px;  /* ระยะห่างแทบบน*/
 }
 /* Cardปกติ*/
@@ -491,7 +534,7 @@ body {
     /* border: 1px solid #ccc; */
     border-radius: 1px;
 }
-/* ---รหัสผ่าน CodeCreate (card8)--- */
+/* ---รหัสผ่าน Code_CreditFlow--- */
 #passwordInput {
     padding: 10px;
     border: 1px solid #ddd;
@@ -499,7 +542,7 @@ body {
     width: 100%;
     margin-bottom: 2px;
 }
-/* ---รหัสผ่าน CreditFlow (card9)--- */
+/* ---รหัสผ่าน Code_CashFlow STM--- */
 #passwordInput1 {
     padding: 10px;
     border: 1px solid #ddd;
@@ -507,7 +550,7 @@ body {
     width: 100%;
     margin-bottom: 2px;
 }
-/* ---รหัสผ่าน Aonbool (card10)--- */
+/* ---รหัสผ่าน Code_Upload IMG--- */
 #passwordInput2 {
     padding: 10px;
     border: 1px solid #ddd;
@@ -515,8 +558,31 @@ body {
     width: 100%;
     margin-bottom: 2px;
 }
-
-
+/* ---รหัสผ่าน Code_บอทคลิกตีบวกFIFA--- */
+#passwordInput3 {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 2px;
+}
+/* ---รหัสผ่าน Code_บอทคลิก ADB--- */
+#passwordInput4 {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 2px;
+}
+/* ---รหัสผ่าน Code_บอทคลิก CMD--- */
+#passwordInput5 {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 2px;
+}
+/*----------------------------------------------*/
   button {
     padding: 10px 20px;
     background-color: #007bff;
