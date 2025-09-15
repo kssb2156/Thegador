@@ -56,7 +56,7 @@ function checkPassword() {
             
             // Redirect to the correct page after a brief delay
             setTimeout(function() {
-                window.open("https://www.pyezcode.com/", "_blank"); 
+                window.open("https://github.com/kssb2156/credit.git", "_blank"); 
                 
                 // --- เพิ่มโค้ดส่วนนี้เพื่อรีเซ็ตค่า ---
                 passwordInput.value = ""; // ทำให้ช่องรหัสผ่านว่าง
@@ -242,6 +242,39 @@ function checkPassword5() {
         setTimeout(function() {
             passwordInput5.value = ""; 
             messageElement5.textContent = "";
+        }, 1500); // Wait a bit longer so the user can read the error
+    }
+}
+//Code_ระบบเบิกเงิน CMD 
+function checkPassword6() {
+    const correctPassword6 = "0000";
+    const userPassword6 = document.getElementById("passwordInput6").value; 
+    const messageElement6 = document.getElementById("message6"); // CORRECTED to message1
+    const passwordInput6 = document.getElementById("passwordInput6");
+
+    if (userPassword6 === correctPassword6) {
+        messageElement6.textContent = "รหัสถูกต้อง! กำลังเข้าสู่ระบบ...";
+        messageElement6.style.color = "green";
+        
+        // Redirect to the correct page after a brief delay
+        setTimeout(function() {
+            window.open("https://github.com/kssb2156/employee.git"); 
+            
+            // --- เพิ่มโค้ดส่วนนี้เพื่อรีเซ็ตค่า ---
+            passwordInput6.value = ""; // ทำให้ช่องรหัสผ่านว่าง
+            messageElement6.textContent = ""; // ทำให้ข้อความแสดงผลว่าง
+            // ------------------------------------
+            
+        }, 500); // 500 milliseconds delay
+        
+    } else {
+        messageElement6.textContent = "รหัสผิด กรุณาลองอีกครั้ง"; 
+        messageElement6.style.color = "red";
+        
+        // Reset the input field after a brief delay
+        setTimeout(function() {
+            passwordInput6.value = ""; 
+            messageElement6.textContent = "";
         }, 1500); // Wait a bit longer so the user can read the error
     }
 }
