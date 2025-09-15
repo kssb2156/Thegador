@@ -582,6 +582,15 @@ body {
     width: 100%;
     margin-bottom: 2px;
 }
+/* ---รหัสผ่าน Code_บอทคลิก CMD--- */
+#passwordInput6 {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 2px;
+}
+
 /*----------------------------------------------*/
   button {
     padding: 10px 20px;
